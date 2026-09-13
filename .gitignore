@@ -1,0 +1,56 @@
+# Secrets / local environment files
+.env
+.env.*
+*.secret
+*.secrets
+secrets/
+credentials/
+credentials.json
+
+# Keys / certificates
+*.pem
+*.key
+*.pfx
+*.p12
+*.cer
+*.crt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# PowerShell / temporary output
+*.tmp
+*.temp
+*.log
+
+# Generated backup / recovery data
+backups/
+backup/
+recovery-output/
+restore-output/
+exports/
+generated/
+
+# Test output / reports
+coverage/
+htmlcov/
+.coverage
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# OneDrive / Office temporary files
+~$*
