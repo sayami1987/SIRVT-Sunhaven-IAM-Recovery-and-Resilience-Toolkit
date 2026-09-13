@@ -1,0 +1,49 @@
+{
+  "dataset": "Sunhaven Care Fictional IAM Roles",
+  "version": "1.0",
+  "description": "Fictional role definitions used for SIRVT backup and recovery testing.",
+  "roles": [
+    {
+      "role_id": "ROLE_NURSE",
+      "role_name": "Nurse",
+      "department": "Nursing",
+      "access_level": "Clinical",
+      "description": "Provides nursing staff with access required for resident care activities."
+    },
+    {
+      "role_id": "ROLE_CAREWORKER",
+      "role_name": "Care Worker",
+      "department": "Care Services",
+      "access_level": "Care",
+      "description": "Provides care workers with access required for day-to-day resident support."
+    },
+    {
+      "role_id": "ROLE_AGENCY",
+      "role_name": "Agency Worker",
+      "department": "Care Services",
+      "access_level": "Limited",
+      "description": "Provides temporary agency workers with limited access required for assigned duties."
+    },
+    {
+      "role_id": "ROLE_MANAGER",
+      "role_name": "Manager",
+      "department": "Management",
+      "access_level": "Management",
+      "description": "Provides managers with access to management and operational functions."
+    },
+    {
+      "role_id": "ROLE_AUDITOR",
+      "role_name": "Auditor",
+      "department": "Audit and Compliance",
+      "access_level": "Read Only",
+      "description": "Provides audit personnel with read-only access to records and audit evidence."
+    },
+    {
+      "role_id": "ROLE_IAM_ADMIN",
+      "role_name": "IAM Administrator",
+      "department": "IT",
+      "access_level": "Privileged",
+      "description": "Provides authorised administrators with privileged IAM management access."
+    }
+  ]
+}

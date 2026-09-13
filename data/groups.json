@@ -1,0 +1,55 @@
+{
+  "dataset": "Sunhaven Care Fictional IAM Groups",
+  "version": "1.0",
+  "description": "Fictional security groups used for SIRVT backup and recovery testing.",
+  "groups": [
+    {
+      "group_id": "GRP_NURSING",
+      "group_name": "Nursing Staff",
+      "purpose": "Groups nursing staff who require access to clinical care systems.",
+      "assigned_roles": [
+        "ROLE_NURSE"
+      ]
+    },
+    {
+      "group_id": "GRP_CARE_SERVICES",
+      "group_name": "Care Services Staff",
+      "purpose": "Groups permanent care workers who require standard resident support access.",
+      "assigned_roles": [
+        "ROLE_CAREWORKER"
+      ]
+    },
+    {
+      "group_id": "GRP_AGENCY",
+      "group_name": "Agency Workers",
+      "purpose": "Groups temporary agency workers who require restricted access.",
+      "assigned_roles": [
+        "ROLE_AGENCY"
+      ]
+    },
+    {
+      "group_id": "GRP_MANAGEMENT",
+      "group_name": "Management",
+      "purpose": "Groups managers who require operational and management access.",
+      "assigned_roles": [
+        "ROLE_MANAGER"
+      ]
+    },
+    {
+      "group_id": "GRP_AUDIT",
+      "group_name": "Audit and Compliance",
+      "purpose": "Groups audit personnel who require read-only access to review evidence and records.",
+      "assigned_roles": [
+        "ROLE_AUDITOR"
+      ]
+    },
+    {
+      "group_id": "GRP_IAM_ADMIN",
+      "group_name": "IAM Administrators",
+      "purpose": "Groups authorised IT staff who require privileged IAM administration access.",
+      "assigned_roles": [
+        "ROLE_IAM_ADMIN"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "dataset": "Sunhaven Care Fictional IAM Users",
+  "version": "1.0",
+  "description": "Fictional user identities used for SIRVT backup and recovery testing.",
+  "users": [
+    {
+      "user_id": "SH001",
+      "display_name": "Maya Gurung",
+      "worker_type": "Permanent",
+      "department": "Nursing",
+      "role_id": "ROLE_NURSE",
+      "account_status": "Active"
+    },
+    {
+      "user_id": "SH002",
+      "display_name": "Lucas Pereira",
+      "worker_type": "Permanent",
+      "department": "Care Services",
+      "role_id": "ROLE_CAREWORKER",
+      "account_status": "Active"
+    },
+    {
+      "user_id": "SH003",
+      "display_name": "Amina Yusuf",
+      "worker_type": "Agency",
+      "department": "Care Services",
+      "role_id": "ROLE_AGENCY",
+      "account_status": "Active"
+    },
+    {
+      "user_id": "SH004",
+      "display_name": "Mateo Novak",
+      "worker_type": "Permanent",
+      "department": "Management",
+      "role_id": "ROLE_MANAGER",
+      "account_status": "Active"
+    },
+    {
+      "user_id": "SH005",
+      "display_name": "Sofia Romano",
+      "worker_type": "Permanent",
+      "department": "Audit and Compliance",
+      "role_id": "ROLE_AUDITOR",
+      "account_status": "Active"
+    },
+    {
+      "user_id": "SH006",
+      "display_name": "Haruto Mori",
+      "worker_type": "Permanent",
+      "department": "IT",
+      "role_id": "ROLE_IAM_ADMIN",
+      "account_status": "Active"
+    }
+  ]
+}

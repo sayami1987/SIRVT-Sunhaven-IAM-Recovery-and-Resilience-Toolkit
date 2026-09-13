@@ -1,0 +1,53 @@
+{
+  "dataset": "Sunhaven Care Fictional IAM Policies",
+  "version": "1.0",
+  "description": "Fictional IAM security policies used for SIRVT backup and recovery testing.",
+  "policies": [
+    {
+      "policy_id": "POL_MFA_001",
+      "policy_name": "Privileged Access MFA",
+      "status": "Enabled",
+      "applies_to": [
+        "ROLE_IAM_ADMIN",
+        "ROLE_MANAGER"
+      ],
+      "requirement": "Multi-factor authentication is required for privileged and management access."
+    },
+    {
+      "policy_id": "POL_ACCESS_002",
+      "policy_name": "Least Privilege Access",
+      "status": "Enabled",
+      "applies_to": [
+        "All Workers"
+      ],
+      "requirement": "Workers should only receive access required for their assigned duties."
+    },
+    {
+      "policy_id": "POL_LEAVER_003",
+      "policy_name": "Leaver Account Disablement",
+      "status": "Enabled",
+      "applies_to": [
+        "All Workers"
+      ],
+      "requirement": "Accounts belonging to workers who leave Sunhaven Care must be disabled promptly."
+    },
+    {
+      "policy_id": "POL_AGENCY_004",
+      "policy_name": "Agency Worker Access Expiry",
+      "status": "Enabled",
+      "applies_to": [
+        "ROLE_AGENCY"
+      ],
+      "requirement": "Temporary agency access must not remain active after the approved work period ends."
+    },
+    {
+      "policy_id": "POL_REVIEW_005",
+      "policy_name": "Periodic Access Review",
+      "status": "Enabled",
+      "applies_to": [
+        "All Workers"
+      ],
+      "requirement": "User access should be reviewed regularly to confirm that it is still required."
+    }
+  ]
+}
