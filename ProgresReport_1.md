@@ -9,7 +9,7 @@
 
 ---
 
-## 1. Progress Focus
+## 1. Progress Overview
 
 The work completed so far has focused on defining the SIRVT problem clearly before beginning implementation.
 
@@ -19,7 +19,7 @@ SIRVT has therefore been positioned as a recovery and resilience component for t
 
 Its main security question is:
 
-> If important IAM information is damaged, modified, deleted or corrupted, can Sunhaven identify a trusted recovery point and restore it safely?
+> If important IAM information is damaged, modified, deleted or corrupted, can Sunhaven identify a verified recovery copy and restore it safely?
 
 This gives SIRVT a clear purpose that is different from normal user provisioning, role assignment, access review or monitoring.
 
@@ -37,10 +37,10 @@ Recovery and resilience was selected because IAM configuration is security-criti
 - deleted IAM information;
 - corrupted files;
 - incomplete backup data;
-- unsuccessful updates;
-- or partial recovery after failure.
+- unsuccessful updates; or
+- partial recovery after failure.
 
-The important issue is not only whether a backup exists, but whether that backup can still be trusted.
+The important issue is not only whether a backup exists, but whether it still matches the recovery state that was originally recorded.
 
 This led to the central SIRVT design principle:
 
@@ -52,18 +52,15 @@ This led to the central SIRVT design principle:
 
 A high-level SIRVT architecture has been designed around a controlled recovery process.
 
-The SIRVT process starts with the fictional Sunhaven IAM state, which is backed up and then checked using SHA-256 integrity verification. If the integrity check fails, the backup is rejected and recovery is stopped. If the check passes, the trusted backup is restored, the recovered data is validated for completeness, and the final result is recorded in a recovery report.
-
-
+The SIRVT process starts with the fictional Sunhaven IAM state, which will be backed up and checked using SHA-256 integrity verification. If the integrity check fails, the backup will be rejected and recovery will stop. If the check passes, the verified backup can be restored, the recovered data can be checked for completeness, and the result can be recorded in a recovery report.
 
 The most important design decision is the placement of integrity verification before restoration.
 
-This was done because restoring data first and checking it later would defeat the purpose of a trusted recovery process.
+This was done because restoring data first and checking it later would defeat the purpose of a controlled recovery process.
 
+This creates a clear security boundary between a backup that merely exists and a backup that has passed the expected integrity check.
 
-This creates a clear security boundary between a backup that merely exists and a backup that has been validated.
-
-The architecture was also deliberately kept small and understandable. A complex cloud recovery platform was not required for the prototype. The goal is to demonstrate the security logic clearly and produce evidence that can be explained during the final demonstration.
+The architecture was deliberately kept small and understandable. The goal is to demonstrate the security logic clearly and produce evidence that can be explained during the final demonstration.
 
 ---
 
@@ -109,8 +106,8 @@ The fictional policies cover areas such as:
 - privileged access MFA;
 - least privilege;
 - leaver account disablement;
-- agency access expiry;
-- and periodic access review.
+- agency access expiry; and
+- periodic access review.
 
 These files provide enough structure to demonstrate a meaningful recovery process without creating an unnecessarily large dataset.
 
@@ -124,7 +121,7 @@ A small dataset makes the project easier to validate and explain.
 
 It also allows individual failures to be demonstrated clearly.
 
-For example, if `roles.json` is modified after a backup is created, the future integrity checker should identify that the current file no longer matches the trusted hash stored for that backup.
+For example, if `roles.json` is modified after a backup is created, the future integrity checker should identify that the file no longer matches the SHA-256 value recorded in the backup manifest.
 
 This provides a direct and understandable security demonstration.
 
@@ -141,10 +138,9 @@ The most important behaviours identified for testing are:
 - a valid backup should pass verification;
 - a modified backup file should fail verification;
 - a missing required file should be detected;
-- an untrusted backup should not be restored;
-- a valid backup should be recoverable;
-- and the recovered state should be checked for completeness.
-
+- a backup that fails verification should not be restored;
+- a verified backup should be recoverable; and
+- the recovered state should be checked for completeness.
 
 ---
 
@@ -161,8 +157,8 @@ It does not perform:
 - Flask application blocking;
 - compliance checking;
 - event monitoring;
-- context-aware access decisions;
-- or shared-device session testing.
+- context-aware access decisions; or
+- shared-device session testing.
 
 Those areas are already part of the wider team work or other individual technical artefacts.
 
@@ -172,13 +168,12 @@ SIRVT instead owns its own:
 - backup format;
 - integrity checking process;
 - recovery process;
-- recovery validation;
-- and recovery evidence.
+- recovery validation; and
+- recovery evidence.
 
 This separation is important because it keeps the individual contribution clear and avoids technical duplication.
 
 ---
-
 
 ## 8. Current Technical Status
 
@@ -191,8 +186,8 @@ Completed work includes:
 - designing the recovery architecture;
 - creating the architecture diagram;
 - documenting the security reasoning;
-- creating the initial test approach;
-- and creating the fictional IAM dataset.
+- creating the initial test approach; and
+- creating the fictional IAM dataset.
 
 The Python implementation has not yet started.
 
@@ -202,26 +197,22 @@ The project is now ready to move into implementation.
 
 ---
 
-## 19. Next Step
+## 9. Next Step
 
 The next step is to make SIRVT safely load the four IAM JSON files.
 
-The first implementation should only:
+The first implementation should:
 
 1. locate the required files;
 2. load each JSON document;
 3. confirm that the JSON is valid;
-4. report any missing file;
-5. and display a clear success or failure result.
-
+4. report any missing file; and
+5. display a clear success or failure result.
 
 Backup creation should only begin after the source dataset can be loaded and validated correctly.
 
 ---
 
-
-
 The project now has a clear security objective, defined input data, a simple architecture and expected test behaviour.
 
 This provides a controlled starting point for the implementation of backup creation, SHA-256 verification, safe restore and recovery validation.
-
